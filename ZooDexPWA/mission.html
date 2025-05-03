@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>動物園 AI 對話闖關</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #F9FBE7;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    header {
+      background-color: #edd120;
+      color: #263238;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+    .chat-container {
+      flex: 1;
+      padding: 1rem;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .chat-bubble {
+      max-width: 75%;
+      padding: 0.8rem;
+      border-radius: 12px;
+      line-height: 1.4;
+    }
+    .bot {
+      background-color: #B5E07E;
+      align-self: flex-start;
+      color: #263238;
+    }
+    .user {
+      background-color: #5F7C69;
+      color: white;
+      align-self: flex-end;
+    }
+    .input-area {
+      display: flex;
+      padding: 0.5rem;
+      border-top: 1px solid #ccc;
+      background-color: #fff;
+    }
+    .input-area input {
+      flex: 1;
+      padding: 0.5rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .input-area button {
+      margin-left: 0.5rem;
+      background-color: #edd120;
+      color: #263238;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .back-home {
+      text-align: center;
+      padding: 1rem;
+    }
+    .back-home a {
+      color: #5F7C69;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>🦜 動物園 AI 對話闖關</header>
+  <div class="chat-container" id="chat">
+    <div class="chat-bubble bot">你準備好挑戰動物小遊戲了嗎？請打 "開始" 開始闖關 🐾</div>
+  </div>
+  <div class="input-area">
+    <input type="text" id="userInput" placeholder="輸入你的回答...">
+    <button onclick="sendMessage()">送出</button>
+  </div>
+  <div class="back-home">
+    <a href="zoo.html">← 返回首頁</a>
+  </div>
+  <script>
+    const chat = document.getElementById('chat');
+    const input = document.getElementById('userInput');
+
+    let state = 0;
+
+    function addMessage(text, sender) {
+      const msg = document.createElement('div');
+      msg.className = `chat-bubble ${sender}`;
+      msg.innerText = text;
+      chat.appendChild(msg);
+      chat.scrollTop = chat.scrollHeight;
+    }
+
+    function sendMessage() {
+      const text = input.value.trim();
+      if (!text) return;
+      addMessage(text, 'user');
+      input.value = '';
+
+      setTimeout(() => {
+        if (state === 0 && text.includes('開始')) {
+          addMessage('第一題：哪一種動物擁有長鼻子與大耳朵，常出現在非洲草原？', 'bot');
+          state = 1;
+        } else if (state === 1 && text.includes('大象')) {
+          addMessage('答對了！第二題：哪種台灣特有動物喜歡棲息在山區，外型像猴子？', 'bot');
+          state = 2;
+        } else if (state === 2 && text.includes('台灣獼猴')) {
+          addMessage('恭喜你成功通關！你已經是動物小達人 🎉', 'bot');
+          state = 3;
+        } else if (state < 3) {
+          addMessage('再想想看喔～可以重新嘗試答案 😊', 'bot');
+        } else {
+          addMessage('你已經完成挑戰！想再玩一次可以輸入「開始」～', 'bot');
+          state = 0;
+        }
+      }, 500);
+    }
+  </script>
+</body>
+</html>

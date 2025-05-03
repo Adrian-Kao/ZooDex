@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>辨識結果｜ZooDex</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: linear-gradient(to bottom, #1a1a40, #fff);
+      font-family: 'Arial';
+      color: #333;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    .result-header {
+      background-color: #5F7C69;
+      color: #F0F465;
+      padding: 1rem;
+      font-size: 1.4rem;
+    }
+    .result-card {
+      background: white;
+      width: 90%;
+      max-width: 400px;
+      margin: 2rem auto;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .result-card img {
+      width: 100%;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+    .info {
+      margin-top: 1rem;
+      font-size: 1rem;
+    }
+    .traits {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+    .button-area {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .btn {
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      border: none;
+      background-color: #F0F465;
+      color: #333;
+      font-weight: bold;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="result-header">辨識結果：台灣獼猴</div>
+  <div class="result-card">
+    <img src="C:\Users\adria\OneDrive\文件\GitHub\ZooDexPWA\jpeg.jpg" onclick="playSound()" alt="台灣獼猴">
+    <div class="info">
+      <p>體重：約 6~12 公斤<br>身高：約 50 公分</p>
+      <p>台灣獼猴是台灣唯一原生猴類，生活在低海拔山區與郊區，具有高度社會性。</p>
+    </div>
+    <div class="traits">
+      <div>📍 台灣中南部</div>
+      <div>🌿 雜食性</div>
+      <div>🧠 高社會性</div>
+    </div>
+    <div class="button-area">
+      <button class="btn" onclick="window.location.href='zoo.html'">返回首頁</button>
+      <button class="btn" onclick="alert('功能開發中')">更多資料</button>
+    </div>
+  </div>
+
+  <audio id="monkeySound" src="C:\Users\adria\OneDrive\文件\GitHub\ZooDexPWA\20200214動物園台灣獼猴叫聲The Noises of Formosan Rock Macaque (mp3cut.net).mp3"></audio>
+
+  <script>
+    function playSound() {
+      const sound = document.getElementById('monkeySound');
+      sound.play();
+    }
+  </script>
+</body>
+</html>

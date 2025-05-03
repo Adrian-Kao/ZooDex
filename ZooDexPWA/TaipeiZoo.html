@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>台北市立動物園探索</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      background-color: #F9FBE7;
+    }
+    header {
+      background-color: #edd120;
+      color: #263238;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+    .banner {
+      width: 100%;
+      height: 500px;
+      background-image: url('taipeizoo.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+    .zoo-map-section {
+      padding: 1rem;
+      text-align: center;
+    }
+    .zoo-zones button {
+      background-color: #B5E07E;
+      border: none;
+      color: #263238;
+      padding: 0.8rem 1.2rem;
+      margin: 0.5rem;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .zoo-zones button:hover {
+      background-color: #a3d86b;
+    }
+    .camera-entry {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .camera-btn {
+      display: inline-block;
+      background-color: #5F7C69;
+      color: white;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-size: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+    .camera-btn:hover {
+      background-color: #4e6758;
+    }
+    .back-home {
+      text-align: center;
+      margin: 2rem 0;
+    }
+    .back-home a {
+      color: #5F7C69;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>🐾 台北市立動物園探索</header>
+  <div class="banner"></div>
+  <section class="zoo-map-section">
+    <p>📍 選擇一個園區開始探索</p>
+    <div class="zoo-zones">
+      <button onclick="alert('進入熱帶雨林區')">熱帶雨林區</button>
+      <button onclick="alert('進入非洲動物區')">非洲動物區</button>
+      <button onclick="alert('進入夜行性動物館')">夜行性動物館</button>
+      <button onclick="alert('進入台灣動物區')">台灣動物區</button>
+    </div>
+  </section>
+  <section class="camera-entry">
+    <p>📸 拍照紀錄你看到的動物</p>
+    <a class="camera-btn" href="camera.html">開啟相機</a>
+  </section>
+  <div class="back-home">
+    <a href="zoo.html">← 返回首頁</a>
+  </div>
+</body>
+</html>

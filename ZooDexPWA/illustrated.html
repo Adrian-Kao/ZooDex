@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>ZooDex 圖鑑</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial';
+      background-color: #F9FBE7;
+    }
+    header {
+      background-color: #5F7C69;
+      color: #F0F465;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.4rem;
+    }
+    .search-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #E3EFD5;
+      padding: 0.5rem 1rem;
+    }
+    .search-bar input {
+      padding: 0.5rem;
+      font-size: 1rem;
+      width: 70%;
+      max-width: 400px;
+      border-radius: 1rem;
+      border: none;
+    }
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin: 1rem;
+      color: #5F7C69;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 1rem;
+      padding: 0 1rem;
+    }
+    .card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+      padding: 0.5rem;
+      transition: transform 0.2s ease;
+    }
+    .card:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+    }
+    .card img {
+      width: 64px;
+      height: 64px;
+    }
+    .card-name {
+      margin-top: 0.4rem;
+      font-size: 0.9rem;
+      color: #333;
+    }
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #FFF;
+      display: flex;
+      justify-content: space-around;
+      padding: 0.6rem 0;
+      border-top: 1px solid #ccc;
+    }
+    footer button {
+      background-color: #5F7C69;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      padding: 0.6rem 0.9rem;
+      font-size: 1.2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <header>ZooDex 城市動物圖鑑</header>
+  <div class="search-bar">
+    <input type="text" placeholder="搜尋動物或地區…">
+  </div>
+
+  <div class="section-title">🌳 森林地區</div>
+  <div class="card-grid">
+    <div class="card"><img src="taiwan bear.jpg" alt="台灣黑熊"><div class="card-name">台灣黑熊</div></div>
+    <div class="card"><img src="ferow.jpg" alt="長鬃山羊"><div class="card-name">長鬃山羊</div></div>
+  </div>
+
+  <div class="section-title">🏞️ 山區</div>
+  <div class="card-grid">
+    <div class="card"><img src="jpeg.jpg" alt="台灣獼猴"><div class="card-name">台灣獼猴</div></div>
+    <div class="card"><img src="squirrel.jpg" alt="赤腹松鼠"><div class="card-name">赤腹松鼠</div></div>
+  </div>
+
+  <div class="section-title">🌊 海洋</div>
+  <div class="card-grid">
+    <div class="card"><img src="fish.jpg"alt="櫻花鉤吻鮭"><div class="card-name">櫻花鉤吻鮭</div></div>
+    <div class="card"><img src="dolphin.jpg" alt="台灣白海豚"><div class="card-name">台灣白海豚</div></div>
+  </div>
+
+  <footer>
+    <button onclick="window.location.href='zoo.html'">🏠</button>
+    <button onclick="window.location.href='camera.html'">📷</button>
+   
+  </footer>
+</body>
+</html>

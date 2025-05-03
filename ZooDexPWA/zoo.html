@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZooDex 主畫面</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #F9FBE7;
+    }
+    header {
+      background-color: #edd120;
+      color: #263238;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .menu-btn {
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: #263238;
+      cursor: pointer;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 260px;
+      height: 100%;
+      background-color: #fff;
+      box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+      padding: 1rem;
+      overflow-y: auto;
+      z-index: 1000;
+    }
+    .sidebar.open {
+      transform: translateX(0);
+    }
+    .close-btn {
+      font-size: 1.2rem;
+      background: none;
+      border: none;
+      color: #999;
+      float: right;
+      cursor: pointer;
+      margin-bottom: 1rem;
+    }
+    .sidebar h3 {
+      margin-top: 1rem;
+      margin-bottom: 0.3rem;
+      color: #5F7C69;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding-left: 1rem;
+    }
+    .sidebar li {
+      margin: 0.2rem 0;
+      cursor: pointer;
+      color: #333;
+    }
+    .location-select {
+      background-color: #B5E07E;
+      color: #263238;
+      padding: 0.5rem 1rem;
+      text-align: center;
+    }
+    .link-to-dex {
+      text-align: center;
+      background-color: #5F7C69;
+      padding: 0.5rem;
+    }
+    .link-to-dex a {
+      color: #F0F465;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .animal-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 1rem;
+      gap: 1rem;
+      background-color: #F9FBE7;
+    }
+    .card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      width: 140px;
+      text-align: center;
+      padding: 0.5rem;
+    }
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .card-name {
+      margin-top: 0.5rem;
+      font-weight: bold;
+      color: #5F7C69;
+    }
+    .bottom-buttons {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-around;
+      padding: 1rem;
+      background-color: #FFF;
+      border-top: 1px solid #ccc;
+    }
+    .bottom-buttons a {
+      background-color: #5F7C69;
+      color: white;
+      text-decoration: none;
+      border-radius: 200px;
+      padding: 0.7rem 1.2rem;
+      font-size: 1rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar" id="sidebar">
+    <button class="close-btn" onclick="toggleSidebar()">✕</button>
+    <h3>📍 動物園</h3>
+    <ul>
+      <li><a href="TaipeiZoo.html">台北市立動物園</a></li>
+      <li>新竹市立動物園</li>
+      <li>六福村野生動物王國</li>
+      <li>九九峰動物樂園</li>
+      <li>頑皮世界野生動物園</li>
+      <li>壽山動物園</li>
+    </ul>
+    <h3>🌊 水族館</h3>
+    <ul>
+      <li>潮境智能海洋館（基隆）</li>
+      <li>野柳海洋世界（新北）</li>
+      <li>XPark水生公園（桃園）</li>
+      <li>台中海洋生態館</li>
+      <li>國立海洋生物博物館（屏東）</li>
+      <li>小琉球海洋館（屏東）</li>
+      <li>遠雄海洋公園（花蓮）</li>
+      <li>澎湖水族館</li>
+    </ul>
+    <h3>🏞️ 國家公園</h3>
+    <ul>
+      <li>玉山</li>
+      <li>陽明山</li>
+      <li>太魯閣</li>
+      <li>雪霸</li>
+      <li>金門</li>
+      <li>東沙環礁</li>
+      <li>台江</li>
+      <li>澎湖南方四島</li>
+    </ul>
+    <h3><a href="mission.html">missions</a></h3>
+  </div>
+
+  <header>
+    <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+    ZooDex 城市動物探索
+    <span style="width: 24px;"></span>
+  </header>
+  <div class="location-select">現在位置：台北創新實驗室</div>
+  <div class="link-to-dex">
+    <a href="illustrated.html">🔍 點我開啟全部圖鑑</a>
+  </div>
+  <div class="animal-cards">
+    <div class="card">
+      <img src="mountain (2).jpg" alt="山區">
+      <div class="card-name">山區</div>
+    </div>
+    <div class="card">
+      <img src="field.jpg" alt="平原">
+      <div class="card-name">平原</div>
+    </div>
+    <div class="card">
+      <img src="OCEAN.jpg" alt="海洋">
+      <div class="card-name">海洋</div>
+    </div>
+  </div>
+  <div class="bottom-buttons">
+   <a href="camera.html">📸</a>
+    </div>
+    <script>
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('/service-worker.js');
+        }
+      
+        function toggleSidebar() {
+          document.getElementById('sidebar').classList.toggle('open');
+        }
+      </script>
+      </body>
+      </html>
+      
