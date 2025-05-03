@@ -61,30 +61,10 @@
       height: 32px;
       border: 4px solid white;
     }
-    .top-left {
-      top: 0;
-      left: 0;
-      border-right: none;
-      border-bottom: none;
-    }
-    .top-right {
-      top: 0;
-      right: 0;
-      border-left: none;
-      border-bottom: none;
-    }
-    .bottom-left {
-      bottom: 0;
-      left: 0;
-      border-right: none;
-      border-top: none;
-    }
-    .bottom-right {
-      bottom: 0;
-      right: 0;
-      border-left: none;
-      border-top: none;
-    }
+    .top-left { top: 0; left: 0; border-right: none; border-bottom: none; }
+    .top-right { top: 0; right: 0; border-left: none; border-bottom: none; }
+    .bottom-left { bottom: 0; left: 0; border-right: none; border-top: none; }
+    .bottom-right { bottom: 0; right: 0; border-left: none; border-top: none; }
     .capture-controls {
       position: absolute;
       bottom: 20px;
@@ -125,25 +105,23 @@
   <script>
     const video = document.getElementById('video');
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-      navigator.mediaDevices.getUserMedia({ video: true })
-        .then(function(stream) {
-          video.srcObject = stream;
-        })
-        .catch(function(error) {
-          console.error("無法開啟攝影機：", error);
-        });
+      navigator.mediaDevices.getUserMedia({
+        video: { facingMode: { ideal: "environment" } }
+      })
+      .then(function(stream) {
+        video.srcObject = stream;
+      })
+      .catch(function(error) {
+        console.error("無法開啟攝影機：", error);
+      });
     }
 
     function takePicture() {
-  // 暫停鏡頭畫面（選配）
-  const stream = video.srcObject;
-  const tracks = stream ? stream.getTracks() : [];
-  tracks.forEach(track => track.stop());
-
-  // 模擬跳轉至辨識頁面
-  window.location.href = "result.html"; // 你要準備這個頁面
-}
-
+      const stream = video.srcObject;
+      const tracks = stream ? stream.getTracks() : [];
+      tracks.forEach(track => track.stop());
+      window.location.href = "result.html";
+    }
   </script>
 </body>
 </html>
