@@ -1,7 +1,7 @@
 {
     "name": "ZooDex 城市動物探索",
     "short_name": "ZooDex",
-    "start_url": "index.html",
+    "start_url": "zoo.html",
     "display": "standalone",
     "background_color": "#F9FBE7",
     "theme_color": "#edd120",
